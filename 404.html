@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Signal Lost - IOMARS</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/public/favicon.png">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/themes.css">
+    <script>
+        // Set theme before page renders to avoid flash
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (theme === 'mono') {
+            document.documentElement.classList.add('mono');
+        }
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 mono:bg-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+    <!-- 404 Error Section -->
+    <section class="pt-32 pb-20 bg-white dark:bg-gray-800 min-h-screen flex items-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <!-- Radio Wave Animation -->
+                <div class="flex justify-center mb-6">
+                    <svg class="w-32 h-32 text-iom-red dark:text-red-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                    </svg>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                    Signal Lost!
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
+                    We Can't Hear You...
+                </p>
+                <div class="max-w-2xl mx-auto space-y-4 text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    <p>
+                        <strong class="text-iom-red dark:text-red-400">CQ CQ CQ</strong> - This page seems to be off the air!
+                    </p>
+                    <p>
+                        The frequency you're trying to reach appears to be dead air. Maybe you've tuned to the wrong band,
+                        or perhaps there's some atmospheric interference.
+                    </p>
+                    <p class="italic">
+                        "You're coming in 1x1... actually, you're not coming in at all!"
+                    </p>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6 mb-8 max-w-xl mx-auto">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Troubleshooting Tips:</h2>
+                    <ul class="text-left space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-iom-red dark:text-red-400 mr-2">•</span>
+                            <span>Check your antenna is pointing in the right direction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-iom-red dark:text-red-400 mr-2">•</span>
+                            <span>Adjust your tuning (URL) and try again</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-iom-red dark:text-red-400 mr-2">•</span>
+                            <span>Wait for better propagation conditions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-iom-red dark:text-red-400 mr-2">•</span>
+                            <span>Try switching to a different frequency (page)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="bg-iom-red hover:bg-iom-red-dark text-white font-semibold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl">
+                        Return to Home QTH
+                    </a>
+                    <a href="contact.html" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-8 rounded-lg transition">
+                        Send a QSL Card (Contact Us)
+                    </a>
+                </div>
+
+                <p class="mt-8 text-sm text-gray-500 dark:text-gray-500">
+                    Error Code: <span class="font-mono">HTTP 404</span> | Status: <span class="text-iom-red dark:text-red-400 font-semibold">QRT</span> (Off the air)
+                </p>
+                <div class="mt-6 flex flex-col items-center">
+                    <div class="relative w-20 h-20">
+                        <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="34" fill="none" stroke-width="4" class="stroke-gray-200 dark:stroke-gray-600"></circle>
+                            <circle id="countdown-ring" cx="40" cy="40" r="34" fill="none" stroke-width="4" stroke-linecap="round" class="stroke-iom-red dark:stroke-red-400" style="stroke-dasharray: 213.63; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear;"></circle>
+                        </svg>
+                        <span id="countdown" class="absolute inset-0 flex items-center justify-center text-2xl font-bold font-mono text-iom-red dark:text-red-400">10</span>
+                    </div>
+                    <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">Redirecting to Home QTH...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        const total = 10;
+        let seconds = total;
+        const countdownEl = document.getElementById('countdown');
+        const ringEl = document.getElementById('countdown-ring');
+        const circumference = 2 * Math.PI * 34; // ~213.63
+        const timer = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            ringEl.style.strokeDashoffset = circumference * (1 - seconds / total);
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = '/';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

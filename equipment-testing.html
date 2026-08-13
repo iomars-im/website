@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Testing - IOMARS | Isle of Man Amateur Radio Society</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="IOMARS equipment testing results - coaxial cable loss measurements and analysis from club testing evenings.">
+    <meta name="keywords" content="coax testing, cable loss, amateur radio, feeder loss, RG-213, Ultraflex 7, LDF4-50, IOMARS, Isle of Man">
+    <meta name="author" content="IOMARS">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.iomars.im/equipment-testing.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.iomars.im/equipment-testing.html">
+    <meta property="og:title" content="Equipment Testing - IOMARS | Isle of Man Amateur Radio Society">
+    <meta property="og:description" content="IOMARS equipment testing results - coaxial cable loss measurements and analysis from club testing evenings.">
+    <meta property="og:image" content="https://www.iomars.im/public/favicon.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="IOMARS">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.iomars.im/equipment-testing.html">
+    <meta name="twitter:title" content="Equipment Testing - IOMARS | Isle of Man Amateur Radio Society">
+    <meta name="twitter:description" content="IOMARS equipment testing results - coaxial cable loss measurements and analysis from club testing evenings.">
+    <meta name="twitter:image" content="https://www.iomars.im/public/favicon.png">
+
+    <link rel="icon" type="image/png" href="/public/favicon.png">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/themes.css">
+    <script>
+        // Set theme before page renders to avoid flash
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (theme === 'mono') {
+            document.documentElement.classList.add('mono');
+        }
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 mono:bg-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+    <!-- Hero Section -->
+    <section class="pt-16 relative text-white">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-gradient-to-br from-iom-red to-iom-red-dark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Equipment Testing</h1>
+                <p class="text-xl text-gray-100 drop-shadow-md">Coaxial cable loss measurements and analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coax Test Results -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Coax Cable Loss Testing - 21st January 2026</h2>
+
+            <!-- Spectrum Analyser Plots -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-4 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center">25m RG-213</h3>
+                    <img src="/public/images/coax-test-1.png" alt="Loss vs frequency plot for 25 metres of RG-213 coax" class="plot-thumb w-full rounded-lg border border-gray-300 dark:border-gray-500 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-200">
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-4 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center">15m Ultraflex 7</h3>
+                    <img src="/public/images/coax-test-2.png" alt="Loss vs frequency plot for 15 metres of Ultraflex 7 coax" class="plot-thumb w-full rounded-lg border border-gray-300 dark:border-gray-500 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-200">
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-4 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center">25m LDF4-50</h3>
+                    <img src="/public/images/coax-test-3.png" alt="Loss vs frequency plot for 25 metres of LDF4-50 coax" class="plot-thumb w-full rounded-lg border border-gray-300 dark:border-gray-500 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-200">
+                </div>
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 text-center -mt-6 mb-8">Click any plot to enlarge</p>
+
+            <!-- Lightbox -->
+            <div id="lightbox" class="hidden fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer">
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+            </div>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 text-center italic">
+                Measured using Signal Hound SA44B spectrum analyser, 10 MHz - 2 GHz sweep
+            </p>
+
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                Above are loss against frequency plots for three different bits of coax measured at the
+                testing evening of the 21st January 2026. All the cables were close to the manufacturer's specifications;
+                the only problem spotted was a high loss around 2.4 GHz for the LDF4-50, which proved to be an easy to
+                correct problem with one of the plugs.
+            </p>
+
+            <!-- Results Table -->
+            <div class="overflow-x-auto mb-12">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="bg-gray-900 dark:bg-gray-950 text-white px-4 py-3 border border-gray-700 font-semibold text-sm">Coax</th>
+                            <th colspan="3" class="bg-gray-900 dark:bg-gray-950 text-white px-4 py-3 border border-gray-700 font-semibold text-sm text-center">Loss per 10m (dB)</th>
+                            <th colspan="3" class="bg-gray-900 dark:bg-gray-950 text-white px-4 py-3 border border-gray-700 font-semibold text-sm text-center">Loss per 25m (dB)</th>
+                        </tr>
+                        <tr>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">144 MHz</th>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">432 MHz</th>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">1296 MHz</th>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">144 MHz</th>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">432 MHz</th>
+                            <th class="bg-gray-800 dark:bg-gray-900 text-gray-200 px-4 py-2 border border-gray-700 text-sm text-center font-medium">1296 MHz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 font-semibold text-gray-900 dark:text-white">RG-213</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">0.82</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">1.27</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-orange-600 dark:text-orange-400 font-medium">2.90</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-orange-600 dark:text-orange-400 font-medium">2.06</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-red-600 dark:text-red-400 font-semibold">3.17</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-red-600 dark:text-red-400 font-semibold">7.13</td>
+                        </tr>
+                        <tr class="bg-gray-50 dark:bg-gray-700">
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 font-semibold text-gray-900 dark:text-white">Ultraflex 7</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">0.76</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">1.37</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-orange-600 dark:text-orange-400 font-medium">2.66</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">1.90</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-red-600 dark:text-red-400 font-semibold">3.42</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-red-600 dark:text-red-400 font-semibold">6.65</td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 font-semibold text-gray-900 dark:text-white">LDF4-50</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-green-600 dark:text-green-400 font-medium">0.23</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-green-600 dark:text-green-400 font-medium">0.40</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">0.74</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-green-600 dark:text-green-400 font-medium">0.57</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">0.99</td>
+                            <td class="px-4 py-3 border border-gray-300 dark:border-gray-500 text-center text-gray-700 dark:text-gray-300">1.84</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-12">
+                For a convenient calculator using the manufacturer's figures see
+                <a href="https://thedxshop.com/coax-loss-calculator/" target="_blank" rel="noopener noreferrer" class="text-iom-red dark:text-red-400 hover:underline">The DX Shop Coax Loss Calculator</a>.
+            </p>
+
+            <!-- How much loss is acceptable -->
+            <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">How much loss is acceptable?</h3>
+
+                <div class="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        <strong class="text-gray-900 dark:text-white">1 dB loss</strong> means 79.4% of the signal will get through.
+                        This loss relative to no loss at all will generally go unnoticed in most QSOs.
+                        Only in very marginal contacts, e.g. EME, could it make a difference.
+                    </p>
+
+                    <p>
+                        However, <strong class="text-gray-900 dark:text-white">3 dB is a whole S-point</strong> on most rigs and so will be significant on any weak &lt;S3 QSO,
+                        with half the signal lost in the feeder.
+                    </p>
+
+                    <p>
+                        You should try to keep your feeder loss below 1 dB on all bands by using the appropriate
+                        coax. This means if you have 25 metres of feeder you are going to need LDF4-50 or better on
+                        432 MHz.
+                    </p>
+
+                    <p>
+                        So, what can you do if this is not practical? Fit a masthead preamp on RX and either
+                        increase TX power to compensate for the loss, or have a masthead power amp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.plot-thumb').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

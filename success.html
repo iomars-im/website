@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - IOMARS</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/public/favicon.png">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/themes.css">
+    <script>
+        // Set theme before page renders to avoid flash
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (theme === 'mono') {
+            document.documentElement.classList.add('mono');
+        }
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 mono:bg-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+
+    <!-- Success Message Section -->
+    <section class="pt-32 pb-20 bg-white dark:bg-gray-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-green-50 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded-lg p-8 mb-8">
+                <svg class="w-16 h-16 text-green-500 dark:text-green-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Message Sent Successfully!</h1>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                    Thank you for contacting IOMARS. We've received your message and will get back to you as soon as possible.
+                </p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                    Redirecting to home page in <span id="countdown" class="font-bold text-iom-red dark:text-red-400">10</span> seconds...
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="bg-iom-red hover:bg-iom-red-dark text-white font-semibold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl">
+                        Return to Home
+                    </a>
+                    <a href="contact.html" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-8 rounded-lg transition">
+                        Send Another Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        // Auto-redirect to home page after 10 seconds
+        let countdown = 10;
+        const countdownElement = document.getElementById('countdown');
+
+        // Update countdown every second
+        const interval = setInterval(() => {
+            countdown--;
+            if (countdownElement) {
+                countdownElement.textContent = countdown;
+            }
+
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+
+        // Cancel redirect if user clicks anywhere or presses any key
+        let redirectCancelled = false;
+
+        const cancelRedirect = () => {
+            if (!redirectCancelled) {
+                redirectCancelled = true;
+                clearInterval(interval);
+                if (countdownElement && countdownElement.parentElement) {
+                    countdownElement.parentElement.style.display = 'none';
+                }
+            }
+        };
+
+        document.addEventListener('click', cancelRedirect);
+        document.addEventListener('keydown', cancelRedirect);
+    </script>
+</body>
+</html>

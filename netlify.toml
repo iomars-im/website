@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Deploy Previews for all branches except main
+[context.branch-deploy]
+  command = "npm run build"
+  publish = "dist"
+
+# Production build (main branch)
+[context.production]
+  command = "npm run build"
+  publish = "dist"
+
+# Dev branch specific settings
+[context.dev]
+  command = "npm run build"
+  publish = "dist"
+
+# Redirect /admin to /admin/index.html for the CMS
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# Redirect /admin/ to /admin/index.html for the CMS
+[[redirects]]
+  from = "/admin/"
+  to = "/admin/index.html"
+  status = 200

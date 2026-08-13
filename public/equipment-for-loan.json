@@ -1,0 +1,41 @@
+[
+  {
+    "title": "ICOM IC-735",
+    "serial_number": "36215",
+    "description": "An HF Transceiver complete with power supply in excellent condition.",
+    "photos": [
+      {
+        "image": "/images/uploads/p1221168.jpeg"
+      }
+    ],
+    "category": "HF Radio",
+    "available": true,
+    "order": -1
+  },
+  {
+    "title": "MFJ-948",
+    "serial_number": "138685",
+    "description": "An Antenna Matching Unit in good condition which includes a power meter.",
+    "photos": [
+      {
+        "image": "/images/uploads/p1151145.jpeg"
+      }
+    ],
+    "category": "Accessory",
+    "available": true,
+    "order": 0
+  },
+  {
+    "title": "Samlex RPS1220 13.8 volt 20 amp Power Supply",
+    "serial_number": "Unknown",
+    "description": "Samlex RPS1220 13.8 volt 20 amp Power Supply",
+    "photos": [
+      {
+        "image": "/images/uploads/slide1.jpeg"
+      }
+    ],
+    "category": "Power Supply",
+    "available": true,
+    "order": 0
+  }
+]

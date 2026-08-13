@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable local backend for development (run: npx decap-server)
+# local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "news"
+    label: "News"
+    label_singular: "Article"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Author", name: "author", widget: "string", required: true, default: "IOMARS Admin", hint: "Enter your callsign or name"}
+      - {label: "Pin to Top", name: "pinned", widget: "boolean", required: false, default: false}
+
+  - name: "minutes"
+    label: "Meeting Minutes"
+    folder: "content/minutes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", hint: "e.g., 'Committee Meeting - January 2025'"}
+      - {label: "Meeting Date", name: "date", widget: "datetime"}
+      - {label: "PDF Document", name: "pdf", widget: "file", required: true, hint: "Upload the PDF file of the meeting minutes"}
+      - {label: "Summary", name: "summary", widget: "text", required: false, hint: "Optional brief summary of key points"}
+      - {label: "Uploaded By", name: "uploaded_by", widget: "string", required: true, default: "IOMARS Admin", hint: "Enter your callsign or name"}
+
+  - name: "certificates"
+    label: "Contest Certificates"
+    label_singular: "Certificate"
+    folder: "content/certificates"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Contest Name", name: "title", widget: "string", hint: "e.g., '432MHz AFS 2025'"}
+      - {label: "Contest Date", name: "date", widget: "datetime", hint: "Date of the contest"}
+      - {label: "Certificate PDF", name: "pdf", widget: "file", required: true, hint: "Upload the certificate PDF"}
+      - {label: "Achievement", name: "achievement", widget: "string", hint: "e.g., '9th in the Local Section'"}
+      - {label: "Contest Type", name: "contest_type", widget: "string", required: false, hint: "e.g., '144MHz Affiliated Societies contest' - for summary display"}
+      - {label: "Position", name: "position", widget: "number", required: false, hint: "e.g., 7 - your placement"}
+      - {label: "Total Entries", name: "total_entries", widget: "number", required: false, hint: "e.g., 25 - total number of entrants"}
+      - {label: "Operators", name: "operators", widget: "string", hint: "Comma-separated callsigns, e.g., 'GD8EXI, GD0TFG'"}
+      - {label: "Display Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first (use negative for newer certs)"}
+      - {label: "Uploaded By", name: "uploaded_by", widget: "string", required: true, default: "IOMARS Admin", hint: "Enter your callsign or name"}
+
+  - name: "links"
+    label: "Useful Links"
+    label_singular: "Link"
+    folder: "content/links"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Link Name", name: "title", widget: "string", required: true, hint: "e.g., 'QRZ.com'"}
+      - {label: "URL", name: "url", widget: "string", required: true, hint: "e.g., 'https://www.qrz.com'"}
+      - {label: "Description", name: "description", widget: "string", required: true, hint: "Short description of the link"}
+      - {label: "Category", name: "category", widget: "select", options: ["Propagation", "Technical Resources", "Operating", "Useful Databases", "Training"], required: true, hint: "Which section should this link appear in?"}
+      - {label: "Display Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first within category"}
+
+  - name: "equipment-for-sale"
+    label: "Equipment for Sale"
+    label_singular: "Equipment Item"
+    folder: "content/equipment-for-sale"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Item Name", name: "title", widget: "string", required: true, hint: "e.g., 'Yaesu FT-857D HF/VHF/UHF Transceiver'"}
+      - {label: "Serial Number", name: "serial_number", widget: "string", required: true, hint: "Serial number or asset tag if applicable"}
+      - {label: "Price", name: "price", widget: "string", required: true, hint: "e.g., '£350' or 'Make an offer'"}
+      - {label: "Description", name: "description", widget: "markdown", required: true, hint: "Detailed description of the item, condition, included accessories, etc."}
+      - {label: "Known Defects", name: "known_defects", widget: "text", required: false, hint: "List any known issues, defects, or missing items"}
+      - {label: "Photos", name: "photos", widget: "list", required: false, fields: [{label: "Image", name: "image", widget: "image"}], hint: "Upload photos of the equipment"}
+      - {label: "Category", name: "category", widget: "select", options: ["HF Radio", "VHF/UHF Radio", "Antenna", "Power Supply", "Accessory", "Other"], required: true}
+      - {label: "Condition", name: "condition", widget: "select", options: ["New", "Excellent", "Good", "Fair", "For Parts"], required: true}
+      - {label: "Contact Person", name: "contact", widget: "string", required: true, hint: "Callsign or name of person to contact"}
+      - {label: "Available", name: "available", widget: "boolean", default: true, hint: "Uncheck when sold"}
+      - {label: "Date Listed", name: "date", widget: "datetime", default: ""}
+      - {label: "Display Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first"}
+
+  - name: "equipment-for-loan"
+    label: "Equipment for Loan"
+    label_singular: "Loan Equipment Item"
+    folder: "content/equipment-for-loan"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Item Name", name: "title", widget: "string", required: true, hint: "e.g., 'Icom IC-7300 HF Transceiver'"}
+      - {label: "Serial Number", name: "serial_number", widget: "string", required: true, hint: "Serial number or asset tag if applicable"}
+      - {label: "Description", name: "description", widget: "markdown", required: true, hint: "Description of the equipment, capabilities, included items"}
+      - {label: "Known Defects", name: "known_defects", widget: "text", required: false, hint: "List any known issues, defects, or missing items"}
+      - {label: "Photos", name: "photos", widget: "list", required: false, fields: [{label: "Image", name: "image", widget: "image"}], hint: "Upload photos of the equipment"}
+      - {label: "Category", name: "category", widget: "select", options: ["HF Radio", "VHF/UHF Radio", "DMR Radio", "Antenna", "Power Supply", "Test Equipment", "Accessory", "Other"], required: true}
+      - {label: "Currently Available", name: "available", widget: "boolean", default: true, hint: "Uncheck when on loan"}
+      - {label: "Loan Duration", name: "loan_duration", widget: "string", required: false, hint: "e.g., 'Maximum 2 weeks' or 'By arrangement'"}
+      - {label: "Requirements", name: "requirements", widget: "text", required: false, hint: "Any requirements for borrowing (e.g., 'Must be collected from club meeting')"}
+      - {label: "Display Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first"}

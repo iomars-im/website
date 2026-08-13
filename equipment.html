@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment - Isle of Man Amateur Radio Society</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Equipment available at IOMARS. Learn about club equipment loans and resources available to members.">
+    <meta name="keywords" content="amateur radio, ham radio, equipment, Isle of Man, IOMARS, radio equipment, HF radios, VHF/UHF, DMR">
+    <meta name="author" content="IOMARS">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.iomars.im/equipment.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.iomars.im/equipment.html">
+    <meta property="og:title" content="Equipment - Isle of Man Amateur Radio Society">
+    <meta property="og:description" content="Equipment available at IOMARS. Learn about club equipment loans and resources available to members.">
+    <meta property="og:image" content="https://www.iomars.im/public/favicon.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="IOMARS">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.iomars.im/equipment.html">
+    <meta name="twitter:title" content="Equipment - Isle of Man Amateur Radio Society">
+    <meta name="twitter:description" content="Equipment available at IOMARS. Learn about club equipment loans and resources available to members.">
+    <meta name="twitter:image" content="https://www.iomars.im/public/favicon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="geo.region" content="GB-IOM">
+    <meta name="geo.placename" content="Isle of Man">
+
+    <link rel="icon" type="image/png" href="/public/favicon.png">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/themes.css">
+    <script>
+        // Set theme before page renders to avoid flash
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (theme === 'mono') {
+            document.documentElement.classList.add('mono');
+        }
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 mono:bg-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+
+    <!-- Hero Section -->
+    <section class="pt-16 relative text-white">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://www.kent-engineers.com/KT1key.jpg" alt="Amateur Radio Equipment" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-iom-red/90 to-iom-red-dark/90"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Club Equipment</h1>
+                    <p class="text-xl text-gray-100 drop-shadow-md">Resources Available to IOMARS Members</p>
+                </div>
+                <a href="/admin/" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2 drop-shadow-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                    </svg>
+                    Admin Login
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment to Loan Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Equipment to Loan</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300">Try before you buy - Club members can borrow equipment at no cost</p>
+            </div>
+
+            <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
+                <div class="bg-gradient-to-br from-iom-red/10 to-iom-red-dark/10 dark:from-iom-red/20 dark:to-iom-red-dark/20 rounded-lg p-6 mb-8">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Club members have the opportunity to borrow equipment from the Club before taking the plunge themselves. This allows you to gain hands-on experience and ensure equipment meets your needs before making a purchase.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Speak to a committee member at a club meeting, or email <a href="mailto:info@iomars.im" class="text-iom-red dark:text-red-400 hover:underline font-semibold">info@iomars.im</a> for more information about equipment availability and loan terms.
+                    </p>
+                </div>
+
+                <!-- Dynamic equipment for loan grid -->
+                <div id="equipment-for-loan-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Default static content - will be replaced if CMS items exist -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Available Equipment Types:</h3>
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>HF radios</li>
+                            <li>VHF/UHF radios</li>
+                            <li>DMR equipment</li>
+                            <li>Power supplies</li>
+                            <li>Antennas and accessories</li>
+                            <li>Other amateur radio equipment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-iom-red dark:border-red-400 p-6">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Club Station</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        The club maintains a station at our meeting location where members can operate and gain experience with various modes and frequencies. Equipment is available during club meetings for members to use.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment to Buy Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Equipment for Sale</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300">Club equipment available for purchase by members</p>
+            </div>
+
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg mb-8">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        From time to time, the club has equipment available for sale to members. This may include items donated to the club or upgraded equipment being replaced.
+                    </p>
+
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">How to Purchase</h3>
+                        <ol class="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>Check for available equipment below</li>
+                            <li>Equipment listings will be announced to members via email</li>
+                            <li>Contact the listed person to arrange viewing and purchase</li>
+                            <li>All proceeds support club activities and equipment maintenance</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Dynamic equipment for sale grid -->
+                <div id="equipment-for-sale-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Default content - will be replaced by CMS content -->
+                    <div class="col-span-full">
+                        <div class="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 dark:border-amber-400 p-6">
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <strong>Currently no equipment for sale.</strong> Check back at club meetings or contact <a href="mailto:info@iomars.im" class="text-iom-red dark:text-red-400 hover:underline font-semibold">info@iomars.im</a> for updates on available equipment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-br from-iom-red to-iom-red-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Questions About Equipment?</h2>
+            <p class="text-xl text-red-50 mb-8">Contact us to learn more about equipment loans and club resources</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="bg-white text-iom-red px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg">Contact Us</a>
+                <a href="membership.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">Become a Member</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

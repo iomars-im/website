@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation - IOMARS Website</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Technical documentation for the IOMARS website - architecture, deployment, and content delivery.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/public/favicon.png">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/themes.css">
+    <script>
+        // Set theme before page renders to avoid flash
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (theme === 'mono') {
+            document.documentElement.classList.add('mono');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 mono:bg-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+
+    <!-- Hero Section -->
+    <section class="pt-16 bg-gradient-to-br from-iom-red to-iom-red-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Technical Documentation</h1>
+            <p class="text-xl text-gray-100">Architecture, deployment, and content delivery infrastructure</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Architecture Overview -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Architecture Overview</h2>
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        The IOMARS website is built as a modern, static site with dynamic content management capabilities. The architecture leverages a JAMstack approach for optimal performance, security, and scalability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Technology Stack</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Frontend</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li><strong>Vite</strong> - Modern build tool providing fast development server and optimized production builds</li>
+                            <li><strong>Tailwind CSS</strong> - Utility-first CSS framework for responsive design with dark mode support</li>
+                            <li><strong>Vanilla JavaScript</strong> - Client-side interactivity without heavy framework overhead</li>
+                            <li><strong>Marked.js</strong> - Markdown to HTML conversion for dynamic content</li>
+                            <li><strong>Gray Matter</strong> - YAML frontmatter parsing for content metadata</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Content Management</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li><strong>Decap CMS</strong> - Git-based content management system (formerly Netlify CMS)</li>
+                            <li><strong>Netlify Identity</strong> - User authentication for CMS access</li>
+                            <li><strong>Git Gateway</strong> - Secure API access to GitHub repository</li>
+                            <li><strong>Markdown Files</strong> - Content stored as version-controlled markdown with YAML frontmatter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Build Process -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Build Process</h2>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        The site uses a multi-stage build process that transforms content and generates static HTML:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>build-news.js</strong> - Processes markdown files from <code class="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded">content/news/</code>, converts to HTML, and injects into news.html between marker comments</li>
+                        <li><strong>build-minutes.js</strong> - Generates meeting minutes archive from <code class="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded">content/minutes/</code> with PDF links and summaries</li>
+                        <li><strong>build-certificates.js</strong> - Creates contest certificates display and dynamically generates summary section from metadata (contest_type, position, total_entries)</li>
+                        <li><strong>inject-solar.js</strong> - Injects live HF/VHF/UHF band conditions into index.html footer only</li>
+                        <li><strong>build-commits.js</strong> - Generates recent commit history for site transparency</li>
+                        <li><strong>Vite Build</strong> - Bundles JavaScript, processes CSS, optimizes assets, and generates production-ready files</li>
+                    </ol>
+                    <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded">
+                        <p class="text-gray-800 dark:text-gray-200">
+                            <strong>Note:</strong> All build scripts use HTML comment markers (e.g., <code class="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded">&lt;!-- NEWS_START --&gt;</code>) to identify injection points, allowing static HTML to be dynamically updated during builds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hosting & Deployment -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Hosting & Deployment</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Netlify Platform</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            The site is hosted on <strong>Netlify</strong>, which provides:
+                        </p>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 ml-6">
+                            <li><strong>Continuous Deployment</strong> - Automatic builds triggered by Git commits to main/dev branches</li>
+                            <li><strong>Build Environment</strong> - Node.js environment executes prebuild scripts and Vite build process</li>
+                            <li><strong>Edge Functions</strong> - Serverless functions for API proxying (e.g., HamQSL solar data)</li>
+                            <li><strong>Form Handling</strong> - Native form processing for contact and membership forms</li>
+                            <li><strong>Identity Service</strong> - Authentication provider for CMS access</li>
+                            <li><strong>Git Gateway</strong> - Secure API for CMS to commit content changes to GitHub</li>
+                            <li><strong>Deploy Previews</strong> - Automatic preview deployments for pull requests</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Cloudflare CDN</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            <strong>Cloudflare</strong> sits in front of Netlify, providing:
+                        </p>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 ml-6">
+                            <li><strong>Global CDN</strong> - Content cached across 300+ edge locations worldwide for fast delivery</li>
+                            <li><strong>DDoS Protection</strong> - Enterprise-grade protection against distributed denial of service attacks</li>
+                            <li><strong>SSL/TLS</strong> - Automatic HTTPS with modern encryption protocols</li>
+                            <li><strong>Caching</strong> - Intelligent caching of static assets (HTML, CSS, JS, images) at the edge</li>
+                            <li><strong>DNS Management</strong> - Fast, reliable DNS resolution for iomars.im domain</li>
+                            <li><strong>HTTP/3 & QUIC</strong> - Modern protocols for faster page loads</li>
+                            <li><strong>Brotli Compression</strong> - Superior compression for faster transfers</li>
+                            <li><strong>Auto Minification</strong> - Automatic minification of HTML, CSS, and JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Delivery Flow -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Content Delivery Flow</h2>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+                            <div>
+                                <strong>User Request</strong>
+                                <p>Visitor requests www.iomars.im from their browser</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+                            <div>
+                                <strong>DNS Resolution</strong>
+                                <p>Cloudflare DNS resolves domain to nearest Cloudflare edge server</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+                            <div>
+                                <strong>Edge Cache Check</strong>
+                                <p>Cloudflare checks if content is cached at the edge location</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+                            <div>
+                                <strong>Cache Hit/Miss</strong>
+                                <p><strong>Hit:</strong> Content served directly from edge (&lt; 50ms)<br>
+                                <strong>Miss:</strong> Request forwarded to Netlify origin server</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
+                            <div>
+                                <strong>Origin Response</strong>
+                                <p>Netlify serves pre-built static HTML/CSS/JS from its CDN</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">6</span>
+                            <div>
+                                <strong>Edge Caching</strong>
+                                <p>Cloudflare caches response at edge for subsequent requests</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">7</span>
+                            <div>
+                                <strong>Delivery</strong>
+                                <p>Compressed, optimized content delivered to user's browser</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CMS Workflow -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Content Management Workflow</h2>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        The Decap CMS provides a user-friendly interface for non-technical users to manage content:
+                    </p>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+                            <div>
+                                <strong>Authentication</strong>
+                                <p>User logs in at /admin/ using Netlify Identity (email/password or OAuth)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+                            <div>
+                                <strong>Content Creation</strong>
+                                <p>User creates or edits content using rich text editor interface for News, Minutes, or Certificates</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+                            <div>
+                                <strong>Media Upload</strong>
+                                <p>Images and PDFs uploaded directly through CMS interface to appropriate directories</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+                            <div>
+                                <strong>Git Commit</strong>
+                                <p>CMS commits changes to GitHub via Git Gateway, creating markdown file with YAML frontmatter</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
+                            <div>
+                                <strong>Automatic Build</strong>
+                                <p>Netlify detects Git commit, triggers build process, and executes prebuild scripts</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">6</span>
+                            <div>
+                                <strong>Deployment</strong>
+                                <p>New static site deployed to Netlify, Cloudflare cache invalidated, content live in ~2 minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Optimizations -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Performance Optimizations</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Static Generation</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>All HTML pre-rendered at build time</li>
+                            <li>No server-side processing on each request</li>
+                            <li>Instant page loads from CDN edge</li>
+                            <li>Perfect Lighthouse scores achievable</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Asset Optimization</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>Vite bundles and minifies JavaScript</li>
+                            <li>Tailwind purges unused CSS classes</li>
+                            <li>Cloudflare applies Brotli compression</li>
+                            <li>HTTP/2 multiplexing for parallel downloads</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Caching Strategy</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>Static assets cached with long TTL</li>
+                            <li>HTML cached at edge with revalidation</li>
+                            <li>Browser caching via Cache-Control headers</li>
+                            <li>Service worker potential for offline support</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Edge Computing</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>Content served from nearest edge location</li>
+                            <li>Reduced latency for global visitors</li>
+                            <li>Edge functions for dynamic API data</li>
+                            <li>No origin server overhead</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Security Features</h2>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Static Site</strong> - No database or server-side code reduces attack surface</li>
+                        <li><strong>HTTPS Everywhere</strong> - All traffic encrypted with modern TLS protocols</li>
+                        <li><strong>Git-based CMS</strong> - All content changes version controlled and auditable</li>
+                        <li><strong>Netlify Identity</strong> - Secure authentication with 2FA support</li>
+                        <li><strong>Cloudflare WAF</strong> - Web Application Firewall blocks common attacks</li>
+                        <li><strong>DDoS Protection</strong> - Automatic mitigation of volumetric attacks</li>
+                        <li><strong>Content Security Policy</strong> - Headers prevent XSS and injection attacks</li>
+                        <li><strong>No User Data Storage</strong> - Forms processed by Netlify, no database exposure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Repository Structure -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Repository Structure</h2>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                    <pre class="text-sm text-gray-700 dark:text-gray-300 overflow-x-auto"><code>IOMARS/
+├── public/                      # Static assets
+│   ├── admin/                   # Decap CMS configuration
+│   │   └── config.yml          # CMS collections and fields
+│   ├── certs/                  # Contest certificate PDFs
+│   ├── images/                 # Site images
+│   │   └── news/              # News article images
+│   └── media/                  # Banner images
+├── content/                    # Markdown content
+│   ├── news/                  # News articles
+│   ├── minutes/               # Meeting minutes
+│   └── certificates/          # Contest certificates
+├── src/                       # Source files
+│   ├── main.js               # JavaScript entry point
+│   ├── style.css             # Global styles
+│   ├── themes.css            # Theme definitions
+│   └── footer.js             # Footer component
+├── *.html                     # Page templates
+├── build-news.js             # News builder
+├── build-minutes.js          # Minutes builder
+├── build-certificates.js     # Certificates builder
+├── inject-solar.js           # Solar conditions injector
+├── build-commits.js          # Commit history builder
+├── vite.config.js            # Vite configuration
+├── tailwind.config.js        # Tailwind configuration
+├── netlify.toml              # Netlify build settings
+└── package.json              # Dependencies and scripts</code></pre>
+                </div>
+            </div>
+
+            <!-- Version Info -->
+            <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-lg p-6">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Current Version</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">
+                    <strong>Version:</strong> 1.9.0
+                </p>
+                <p class="text-gray-700 dark:text-gray-300">
+                    <strong>Source Code:</strong> <a href="https://github.com/JavierIOM/iomars" class="text-red-600 dark:text-red-400 hover:underline">GitHub Repository</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
