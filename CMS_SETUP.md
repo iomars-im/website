@@ -37,7 +37,7 @@ The CMS uses GitHub authentication, which means:
 ### 3. Grant Repository Access
 
 To allow someone to edit news:
-1. Go to your GitHub repository: https://github.com/JavierIOM/iomars
+1. Go to your GitHub repository: https://github.com/iomars-im/website
 2. Click **Settings** → **Collaborators**
 3. Click **Add people**
 4. Enter their GitHub username

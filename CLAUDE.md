@@ -24,7 +24,7 @@ the Local Club's section."
   committee members adding news, minutes or certificates on the live site land on `main` only.
   **Merge `main` into `dev` before starting work**, or their content gets lost on the next merge.
 
-Push after committing. That is the default, not something to ask about.
+New to this repository? Read `HANDOVER.md` first, it covers standing the site up from scratch.
 
 ## Build process
 

@@ -1,0 +1,11 @@
+# Normalise line endings so the repo does not appear wholly modified when
+# cloned on a different operating system.
+* text=auto eol=lf
+
+# Binary assets, never touch these.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.pdf binary

@@ -141,10 +141,12 @@ htmlContent = htmlContent.substring(0, startIndex + startMarker.length) +
   '\n' + minutesHtml + '\n                ' +
   htmlContent.substring(endIndex);
 
-// Hide empty state when we have minutes
+// Hide empty state when we have minutes.
+// Match any style attributes already present so repeated builds collapse to exactly one,
+// rather than appending a fresh copy every time.
 if (minutes.length > 0) {
   htmlContent = htmlContent.replace(
-    '<div id="empty-state"',
+    /<div id="empty-state"(?:\s+style="display: none;")*/,
     '<div id="empty-state" style="display: none;"'
   );
 }
