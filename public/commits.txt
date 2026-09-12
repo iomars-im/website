@@ -1,1 +1,2 @@
-5edd7bd - JavierIOM, 5 minutes ago : Initial commit: IOMARS website v2.1.1
+32e8945 - JavierIOM, 4 weeks ago : Prepare repository for handover to a new maintainer
+5edd7bd - JavierIOM, 4 weeks ago : Initial commit: IOMARS website v2.1.1

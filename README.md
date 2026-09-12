@@ -4,7 +4,7 @@ Isle of Man Amateur Radio Society - Modern Website
 
 A modern, responsive website built with Vite and Tailwind CSS for the Isle of Man Amateur Radio Society.
 
-Version: **2.1.1** | Live at [www.iomars.im](https://www.iomars.im)
+Version: **2.1.2** | Live at [www.iomars.im](https://www.iomars.im)
 
 > **Taking over maintenance of this site? Start with [HANDOVER.md](HANDOVER.md).** It covers
 > the accounts you need, standing up hosting from scratch, enabling the content management
